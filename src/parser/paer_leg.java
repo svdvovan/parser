@@ -20,7 +20,7 @@ public class paer_leg {
         System.setProperty("javax.net.ssl.trustStore", "d:/Let'sEncryptAuthorityX3.crt.jks");
         String Path = "https://bfide.ru/catalog/losiny/";
         int Page =0;
-        for (int count = 1 ; count <=4 ; count++  )
+        for (int count = 1 ; count <=3 ; count++  )
 
         {
 
