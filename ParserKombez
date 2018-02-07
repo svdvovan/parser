@@ -55,13 +55,35 @@ public class ParserKombez { public static void main(String[] args) throws IOExce
         Document doc2 = Jsoup.connect(addressUrl).get();
 
         Elements razmeres = doc2.getElementsByClass("skuLabel prop_RAZMER_");
-
-
+        int numRazmeras = 5;
+        String[] allRazmeras = new String[numRazmeras];
+        allRazmeras[0] = "XXS";
+        allRazmeras[1] = "XS";
+        allRazmeras[2] = "S";
+        allRazmeras[3] = "M";
+        allRazmeras[4] = "L";
+        int allRazmerasIndex = 0;
 
         for (Element razmer : razmeres) {
-
-            System.out.print(" ; " + razmer.text());
+            while (allRazmerasIndex < numRazmeras && !allRazmeras[allRazmerasIndex].equals(razmer.text())) {
+                System.out.print("; " + allRazmeras[allRazmerasIndex] + " ; 0");
+                ++allRazmerasIndex;
+            }
+            if (allRazmerasIndex < numRazmeras) {
+                ++allRazmerasIndex;
+            }
+            // System.out.print( " ; " + razmer.text());
+            System.out.print(" ; " + razmer.text() + " ; " + "10");
         }
+        while (allRazmerasIndex < numRazmeras) {
+            System.out.print("; " + allRazmeras[allRazmerasIndex] + " ; 0");
+            ++allRazmerasIndex;
+        }
+
+//        for (Element razmer : razmeres) {
+//
+//            System.out.print(" ; " + razmer.text());
+//        }
 
         Elements pictures = doc2.getElementsByClass("zoomer image");
 
